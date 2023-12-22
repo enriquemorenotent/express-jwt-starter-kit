@@ -3,6 +3,7 @@ const cors = require('cors'); // CORS for handling Cross-Origin Resource Sharing
 const cookieParser = require('cookie-parser'); // Cookie-parser for parsing cookies
 
 const authRouter = require('./routers/authRouter');
+const taskRouter = require('./routers/taskRouter');
 
 // Getting the CORS origin from environment variables
 const { CORS_ORIGIN } = process.env;
@@ -26,6 +27,7 @@ app.use(cookieParser());
 // Add authentication router
 
 app.use('/v1/auth', authRouter);
+app.use('/v1/tasks', taskRouter);
 
 // Defining a dummy root route
 app.get('/', (req, res) => {
@@ -36,6 +38,7 @@ app.get('/', (req, res) => {
 // in case any of the previous middleware functions throw an error
 app.use((err, req, res, next) => {
 	console.log('Error handler');
+	console.log(err);
 	console.error(err.stack); // Logging the stack trace of the error
 	res.status(500).send({ error: err.message }); // Sending a 500 status code with the error message
 });

@@ -3,18 +3,19 @@ require('dotenv').config();
 const bcrypt = require('bcrypt');
 const sequelize = require('./src/config/database');
 const User = require('./src/models/user');
+const Task = require('./src/models/task');
 
 // Sample users data
 const usersData = [
 	{
 		email: 'enriquemorenotent@gmail.com',
 		password: 'notelodire',
-		// tasks: [{ title: 'Do laundry' }, { title: 'Grocery shopping' }],
+		tasks: [{ title: 'Do laundry' }, { title: 'Grocery shopping' }],
 	},
 	{
 		email: 'user2@example.com',
 		password: 'password2',
-		// tasks: [{ title: 'Email clients' }, { title: 'Prepare presentation' }],
+		tasks: [{ title: 'Email clients' }, { title: 'Prepare presentation' }],
 	},
 	// Add more user objects as needed
 ];
@@ -32,9 +33,9 @@ async function seed() {
 
 			// Insert seed data for the user
 			await Promise.all([
-				// ...userData.tasks.map((task) =>
-				// 	Task.create({ ...task, userId: user.id })
-				// ),
+				...userData.tasks.map((task) =>
+					Task.create({ ...task, userId: user.id })
+				),
 				// ...userData.habits.map((habit) =>
 				// 	Habit.create({ ...habit, userId: user.id })
 				// ),
