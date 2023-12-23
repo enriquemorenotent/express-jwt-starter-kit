@@ -4,7 +4,10 @@
 ## Description
 A Node.js API boilerplate using Express.js, Sequelize ORM, and JWT for secure user authentication. Designed for rapid development, it provides a modular structure for easy customization, enhanced security features including rate limiting and CORS configuration, and is perfect for building scalable and secure APIs.
 
+This backend is designed to work seamlessly with the [NextJS Frontend Starter Kit](https://github.com/enriquemorenotent/nextjs-frontend-starter-kit).
+
 **Note:** The "Task" model provided is just an example to showcase how to manage CRUD resources and can be replaced with any model that suits your application's needs.
+
 
 ## Features
 - User Authentication with JWT
